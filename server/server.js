@@ -19,7 +19,24 @@ passport.use(new Strategy(jwt, function(jwt_payload, done) {
     done();
 }));
 
-mongoose.connect('mongodb://localhost:27017/chat', {useMongoClient: true});
+var dbURI = 'mongodb://localhost:27017/chat';
+if (process.env.NODE_ENV === 'production') {
+    dbURI = process.env.MONGOLAB_URI;
+}
+
+mongoose.connect(dbURI);
+
+// CONNECTION EVENTS
+mongoose.connection.on('connected', function() {
+    console.log('Mongoose connected to ' + dbURI);
+});
+mongoose.connection.on('error', function(err) {
+    console.log('Mongoose connection error: ' + err);
+});
+mongoose.connection.on('disconnected', function() {
+    console.log('Mongoose disconnected');
+});
+
 mongoose.Promise = require('bluebird');
 mongoose.set('debug', true);
 
