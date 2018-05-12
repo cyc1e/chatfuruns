@@ -8,12 +8,6 @@ const io = require('socket.io')(server, {serveClient: true});
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-var apiOptions = {
-  server : "http://localhost:7777"
-};
-if (process.env.NODE_ENV === 'production') {
-    apiOptions.server = "https://chatfuruns.herokuapp.com";
-}
 
 const passport = require('passport');
 const { Strategy } = require('passport-jwt');
