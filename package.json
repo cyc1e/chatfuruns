@@ -7,13 +7,10 @@
     "go": "cross-env NODE_ENV=production MONGOLAB_URI=mongodb://cyc1e:28*10*06*lfif76@ds235388.mlab.com:35388/loc8r nodemon",
     "start": "node ./bin/www"
   },
-
   "engines": {
     "node": "~9.3.0",
     "npm": "~5.7.1"
   },
-
-
   "author": "PeterR",
   "license": "ISC",
   "dependencies": {
@@ -28,6 +25,7 @@
     "nunjucks": "^3.1.2",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "serve-favicon": "^2.5.0",
     "socket.io": "^2.1.0"
   }
 }
