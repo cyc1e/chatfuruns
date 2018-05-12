@@ -8,7 +8,6 @@ const io = require('socket.io')(server, {serveClient: true});
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-var favicon = require('serve-favicon');
 
 const passport = require('passport');
 const { Strategy } = require('passport-jwt');
