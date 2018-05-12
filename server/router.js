@@ -37,7 +37,7 @@ module.exports = app => {
             if(user != void(0) && bcrypt.compareSync(req.body.password, user.password)) {
                 const token = createToken({id: user._id, username: user.username});
                 res.cookie('token', token, {
-                    httpOnly: true
+                    httpsOnly: true
                 });
 
                 res.status(200).send({message: "User login success."});
@@ -61,7 +61,7 @@ module.exports = app => {
             const token = createToken({id: user._id, username: user.username});
 
             res.cookie('token', token, {
-                httpOnly: true
+                httpsOnly: true
             });
 
             res.status(200).send({message: "User created."});
