@@ -4,8 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "go": "cross-env NODE_ENV=production MONGOLAB_URI=mongodb://cyc1e:28*10*06*lfif76@ds235388.mlab.com:35388/loc8r nodemon",
-    "start": "node app.js"
+    "start": "cross-env NODE_ENV=production MONGOLAB_URI=mongodb://cyc1e:28*10*06*lfif76@ds235388.mlab.com:35388/loc8r node app.js"
   },
   "engines": {
     "node": "8.11.1",
