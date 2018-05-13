@@ -4,11 +4,11 @@ const express = require('express');
 const app = express();
 const nunjucks = require('nunjucks');
 const server = require('http').Server(app);
-const io = require('socket.io')(server, {serveClient: true});
+const io = require('socket.io').listen(server);
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '7777');
 app.set('port', port);
 
 const passport = require('passport');
