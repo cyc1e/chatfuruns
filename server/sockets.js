@@ -45,12 +45,16 @@ module.exports = io => {
             });
         });
 
+        var today = new Date();
+        var yesterday = new Date();
+        yesterday.setDate(today.getDate() - 1);
+
         socket.on('receiveHistory', () => {
             MessageModel
-                .find({})
-                .sort({date: -1})
-                .limit(50)
+                .find({date: {$gte : yesterday, $lt : today}})
                 .sort({date: 1})
+                .limit()
+                // .sort({date: 1})
                 .lean()
                 .exec( (err, messages) => {
                     if(!err){
