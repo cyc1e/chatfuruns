@@ -74,6 +74,6 @@ $( document ).ready( () => {
 
         $(html).hide().appendTo('.chat-history ul').slideDown(200);
 
-        $(".chat-history").animate({ scrollTop: $('.chat-history')[0].scrollHeight}, 1000);
+        $(".chat-history").animate({ scrollTop: $('.chat-history')[0].scrollHeight}, 100);
     }
 });
