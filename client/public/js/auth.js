@@ -28,7 +28,7 @@ $(".logout-btn").on('click', e => {
 });
 
 $( document ).ready( () => {
-    var socket = io.connect('https://chatfuruns.herokuapp.com:7777');
+    var socket = io.connect('https://chatfuruns.herokuapp.com:5000');
     socket.on('connected', function (msg) {
         console.log(msg);
         socket.emit('receiveHistory');
