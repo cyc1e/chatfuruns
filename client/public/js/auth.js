@@ -44,7 +44,6 @@ $( document ).ready( () => {
 
     $('.chat-message button').on('click', e => {
         e.preventDefault();
-
         var selector = $("textarea[name='message']");
         var messageContent = selector.val().trim();
         console.log(messageContent);
@@ -52,7 +51,19 @@ $( document ).ready( () => {
             socket.emit('msg', messageContent);
             selector.val('');
         }
+
     });
+        
+    $("textarea[name='message']").on('keyup', e => {
+            e.preventDefault();
+            var selector = $("textarea[name='message']");
+            var messageContent = selector.val().trim();
+            if (e.keyCode === 13 && (messageContent !== '')) {
+                socket.emit('msg', messageContent);
+                selector.val('');
+                
+        }
+        });
 
     function encodeHTML (str){
         return $('<div />').text(str).html();
